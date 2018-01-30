@@ -1,6 +1,7 @@
 const React = require('react');
 const {Link, IndexLink } = require('react-router');
 
+
 const Nav = React.createClass({
 
   render: () => {
@@ -10,7 +11,7 @@ const Nav = React.createClass({
           <ul className="menu">
             <li className="menu-text">React Timer App</li>
             <li><IndexLink to="/" activeClassName="active-link">Timer</IndexLink></li>
-            <li><Link to="/" activeClassName="active-link">Countdown</Link></li>
+            <li><Link to="/countdown" activeClassName="active-link">Countdown</Link></li>
           </ul>
         </div>
         <div className="top-bar-right">
