@@ -7,6 +7,7 @@ const Countdown = require('Countdown');
 
 // load Foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
+require('style!css!foundation-sites/dist/css/foundation-float.min.css');
 
 require('style!css!sass!applicationStyles');
 
