@@ -25628,11 +25628,36 @@
 	  displayName: 'Countdown',
 
 	  getInitialState: function getInitialState() {
-	    return { count: 0 };
+	    return {
+	      count: 0,
+	      countdownStatus: 'stopped'
+	    };
+	  },
+	  componentDidUpdate: function componentDidUpdate(prevProps, prevState) {
+	    if (this.state.countdownStatus !== prevState.countdownStatus) {
+	      switch (this.state.countdownStatus) {
+	        case 'started':
+	          this.startTimer();
+	          break;
+
+	      }
+	    }
+	  },
+
+	  startTimer: function startTimer() {
+	    var _this = this;
+
+	    this.timer = setInterval(function () {
+	      var newCount = _this.state.count - 1;
+	      _this.setState({
+	        count: newCount >= 0 ? newCount : 0
+	      });
+	    }, 1000);
 	  },
 	  handleSetCountdown: function handleSetCountdown(seconds) {
 	    this.setState({
-	      count: seconds
+	      count: seconds,
+	      countdownStatus: 'started'
 	    });
 	  },
 
@@ -25643,7 +25668,7 @@
 	      'div',
 	      null,
 	      React.createElement(Clock, { totalSeconds: count }),
-	      React.createElement(CountdownForm, { onSetCountDown: this.handleSetCountdown })
+	      React.createElement(CountdownForm, { onSetCountdown: this.handleSetCountdown })
 	    );
 	  }
 
@@ -25713,16 +25738,15 @@
 	var CountdownForm = React.createClass({
 	  displayName: 'CountdownForm',
 
-
 	  onSubmit: function onSubmit(e) {
 	    e.preventDefault();
 	    var strSeconds = this.refs.seconds.value;
+
 	    if (strSeconds.match(/^[0-9]*$/)) {
 	      this.refs.seconds.value = '';
-	      this.props.onSetCountDown(parseInt(strSeconds, 10));
+	      this.props.onSetCountdown(parseInt(strSeconds, 10));
 	    }
 	  },
-
 	  render: function render() {
 	    return React.createElement(
 	      'div',
@@ -25739,7 +25763,6 @@
 	      )
 	    );
 	  }
-
 	});
 
 	module.exports = CountdownForm;
