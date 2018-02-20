@@ -1,11 +1,15 @@
 const React = require('react');
+const Clock = require('Clock');
 
 const Timer = React.createClass({
 
+
   render: () => {
+
+    let count = 25;
     return (
       <div>
-        <p className="text-center">Timer</p>
+        <Clock totalSeconds={count} />
       </div>
     );
   },

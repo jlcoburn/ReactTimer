@@ -25590,23 +25590,22 @@
 /* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(8);
+	var Clock = __webpack_require__(233);
 
 	var Timer = React.createClass({
-	  displayName: "Timer",
+	  displayName: 'Timer',
 
 
 	  render: function render() {
+
+	    var count = 25;
 	    return React.createElement(
-	      "div",
+	      'div',
 	      null,
-	      React.createElement(
-	        "p",
-	        { className: "text-center" },
-	        "Timer"
-	      )
+	      React.createElement(Clock, { totalSeconds: count })
 	    );
 	  }
 
