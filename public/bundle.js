@@ -25621,7 +25621,9 @@
 	      }
 	    }
 	  },
-
+	  componentWillUnmount: function componentWillUnmount() {
+	    clearInterval(this.timer);
+	  },
 	  startTimer: function startTimer() {
 	    var _this = this;
 
