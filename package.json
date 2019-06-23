@@ -10,7 +10,7 @@
   "author": "Jason Coburn",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": ">=0.18.1",
     "express": "^4.15.4",
     "jquery": "^3.3.1",
     "react": "^0.14.7",
